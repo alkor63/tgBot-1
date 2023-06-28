@@ -42,13 +42,18 @@
         </dependency>
     </dependencies>
 
-    <build>
-        <plugins>
-            <plugin>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-maven-plugin</artifactId>
-            </plugin>
-        </plugins>
-    </build>
+<build>
+    <plugins>
+        <plugin>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-maven-plugin</artifactId>
+            <version>2.3.4.RELEASE</version>
+        </plugin>
+    </plugins>
+</build>
 
 </project>
+<!--       From the Preferences in Intelli J, navigate to "Build, Execution, Deployment > Build Tools > Maven",
+        check the "Use plugin registry", and click "OK".
+        Then "File > Invalidate Caches / Restart" to reload Intelli J. The error will go away automatically.
+-->
