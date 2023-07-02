@@ -1,6 +1,7 @@
 package pro.sky.myfirsttgbot.entity;
 
 import javax.persistence.*;
+import java.time.Instant;
 import java.time.LocalDateTime;
 
 @Entity
@@ -8,16 +9,19 @@ import java.time.LocalDateTime;
 public class NotificationTask {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    private Long id;
     private String message;
-    private long chatId;
+    @Column(name = "chat_id")
+    private Long chatId;
+//    @Column(name = "notification_date_time", nullable = false, updatable = false)
+    @Column(name = "notification_date_time")
     private LocalDateTime notificationDateTime;
 
-    public long getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -29,11 +33,11 @@ public class NotificationTask {
         this.message = message;
     }
 
-    public long getChatId() {
+    public Long getChatId() {
         return chatId;
     }
 
-    public void setChatId(long chatId) {
+    public void setChatId(Long chatId) {
         this.chatId = chatId;
     }
 
