@@ -1,0 +1,17 @@
+### Создание публичного текста
+POST http://localhost:8080/paste
+Content-Type: application/json
+
+{
+  "title": "test",
+  "creator": "test-user",
+  "content": "CONTENT",
+  "ttl": "ONE_MINUTE",
+  "type": "PUBLIC"
+}
+### Получение текста по ключу
+GET http://localhost:8080/paste/KDfKZODC2WPF
+### Получение 10 последних публичных текстов
+GET http://localhost:8080/paste/top10
+### Поиск по содержимому или названию
+GET http://localhost:8080/paste/search?searchTerm=CONTENT
