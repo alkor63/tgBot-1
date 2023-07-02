@@ -22,15 +22,16 @@ public class NotificationTaskTimer {
     }
 
     @Scheduled(fixedDelay = 1, timeUnit = TimeUnit.MINUTES)
-    public void task(){
-    notificationTaskRepository.findAllByNotificationDateTime(
-            LocalDateTime.now().truncatedTo(ChronoUnit.MINUTES)
-    ).forEach(notificationTask -> {
-        telegramBot.execute(
-                new SendMessage(notificationTask.getChatId(),
-                        "сейчас "+notificationTask.getNotificationDateTime()+" вы просили напомтить о задаче: " +notificationTask.getMessage()));
-            }
-            );
-}
+    public void task() {
+        notificationTaskRepository.findAllByNotificationDateTime(
+                LocalDateTime.now().truncatedTo(ChronoUnit.MINUTES)
+        ).forEach(notificationTask -> {
+                    telegramBot.execute(
+                            new SendMessage(notificationTask.getChatId(),
+                                    "сейчас " + notificationTask.getNotificationDateTime()
+                                            + " вы просили напомтить о задаче: " + notificationTask.getMessage()));
+                }
+        );
+    }
 
 }

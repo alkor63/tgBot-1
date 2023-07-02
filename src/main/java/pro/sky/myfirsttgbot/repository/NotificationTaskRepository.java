@@ -11,11 +11,10 @@ import java.util.List;
 
 public interface NotificationTaskRepository extends JpaRepository<NotificationTask, Long> {
     List<NotificationTask> findAllByNotificationDateTime(LocalDateTime localDateTime);
-//    List<NotificationTask> findAllByNotificationDateTime(LocalDateTime localDateTime);
 //    List<NotificationTask> findAllByNotificationDateTimeAAndChatId(LocalDateTime localDateTime, long chatId);
 
 
-//    @Query(value = "SELECT nt FROM notification_task nt WHERE nt.chatid user u ON nt.user_id = u.id WHERE u.name like %:nameLike%", nativeQuery = true)
+//    @Query(value = "SELECT nt FROM notification_task nt WHERE nt.chat_id user u ON nt.user_id = u.id WHERE u.name like %:nameLike%", nativeQuery = true)
 //    List<NotificationTask> findAllByUserNameLike(@Param("nameLike") String nameLike);
 //    @Query(value = "SELECT nt.* FROM notification_task nt INNER JOIN user u ON nt.user_id = u.id WHERE u.name like %:nameLike%", nativeQuery = true)
 //    List<NotificationTask> findAllByNameLike(@Param("nameLike") String nameLike);
