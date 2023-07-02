@@ -69,12 +69,7 @@ public class TelegramBotUpdatesListener implements UpdatesListener {
         Matcher matcher = pattern.matcher(text);
         if (matcher.find()) {
             LocalDateTime dateTime = parse(matcher.group(1));
-//            Instant dateTime = parse(matcher.group(1));
-            System.out.println("first group from message = "+ matcher.group(1));
-            System.out.println("dataTime from message = "+ dateTime);
-
-            dateTime = LocalDateTime.now().truncatedTo(ChronoUnit.MINUTES);
-            System.out.println("dataTime from method NOW() = "+ dateTime);
+//            dateTime = LocalDateTime.now().truncatedTo(ChronoUnit.MINUTES);
 
             if (isNull(dateTime)) {
                 sendMessage(chatId, " Некорректный формат даты и/или времени. должно быть - 28.06.2023 11:53 ");
@@ -100,11 +95,9 @@ public class TelegramBotUpdatesListener implements UpdatesListener {
     }
     @Nullable
     private LocalDateTime parse(String dateTime) {
-//    private Instant parse(String dateTime) {
-        System.out.println(" в метод parse пришло значение dateTime = "+dateTime);
+//        System.out.println(" в метод parse пришло значение dateTime = "+dateTime);
         try {
             return LocalDateTime.parse(dateTime, DateTimeFormatter.ofPattern("dd.MM.yyyy HH:mm"));
-//            return Instant.parse(dateTime);
         } catch (DateTimeParseException e){
         return null;
     }
